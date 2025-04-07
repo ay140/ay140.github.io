@@ -342,6 +342,7 @@ function setupSlideshow() {
 // Gallery slideshow functionality
 let slideIndex = 1;
 const images = [
+    "photos/e1b8b8d4-0d74-4803-aff3-4aca395777f2.JPG",
     "photos/PHOTO-2024-12-09-11-15-25.JPG",
     "photos/PHOTO-2024-12-09-11-15-25 2.JPG",
     "photos/PHOTO-2024-12-09-11-14-16.JPG",
@@ -358,6 +359,7 @@ const images = [
 
 function showSlide(n) {
     const img = document.querySelector('.gallery-image img');
+    if (!img) return;
     
     if (n > images.length) slideIndex = 1;
     if (n < 1) slideIndex = images.length;
@@ -375,7 +377,26 @@ function plusSlides(n) {
 
 let slideTimer;
 
-// Initialize the slideshow
+// Initialize the slideshow when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Set initial image
+    const img = document.querySelector('.gallery-image img');
+    if (img) {
+        img.src = images[0];
+    }
+    
+    // Start the slideshow
     showSlide(slideIndex);
+    
+    // Add event listeners to navigation buttons
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => plusSlides(-1));
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => plusSlides(1));
+    }
 });
