@@ -1944,6 +1944,7 @@ nav {
     align-items: center;
     z-index: 9999;
     animation: fadeOut 0.5s ease-out 1s forwards;
+    overflow: hidden;
 }
 
 .code-text {
@@ -1955,9 +1956,13 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     text-align: center;
     padding: 0 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .welcome-text {
@@ -1965,11 +1970,15 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    width: 100%;
+    text-align: center;
 }
 
 .name-text {
     color: var(--secondary-color);
     font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
 }
 
 .cursor {
@@ -1983,6 +1992,7 @@ nav {
     .code-text {
         font-size: 1.5rem;
         padding: 0 15px;
+        max-width: 600px;
     }
     
     .name-text {
@@ -1994,6 +2004,7 @@ nav {
     .code-text {
         font-size: 1.2rem;
         padding: 0 10px;
+        max-width: 400px;
     }
     
     .name-text {
