@@ -127,6 +127,7 @@ header {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    width: 100%;
 }
 
 /* Add subtle 3D effect to header */
@@ -156,6 +157,7 @@ header::before {
     min-height: 100vh;
     background: linear-gradient(135deg, var(--dark-color), var(--primary-dark));
     overflow: hidden;
+    width: 100%;
 }
 
 .hero::before {
@@ -255,6 +257,8 @@ header::before {
     width: 100%;
     max-width: 1200px;
     position: relative;
+    padding: 2rem;
+    height: 100%;
 }
 
 .hero-text {
@@ -262,10 +266,14 @@ header::before {
     text-align: left;
     position: relative;
     z-index: 2;
+    color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero-text h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
     letter-spacing: 1px;
     background: linear-gradient(to right, var(--primary-light), var(--white-color));
@@ -276,7 +284,7 @@ header::before {
 }
 
 .hero-text h2 {
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
     margin-bottom: 2rem;
     color: var(--primary-light);
     font-weight: 400;
@@ -312,14 +320,14 @@ header::before {
 }
 
 .hero-image {
-    width: 300px;
-    height: 300px;
+    width: clamp(200px, 30vw, 300px);
+    height: clamp(200px, 30vw, 300px);
     border-radius: 50%;
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
-    min-width: 300px;
-    min-height: 300px;
+    min-width: 200px;
+    min-height: 200px;
 }
 
 .hero-image img {
@@ -2096,6 +2104,58 @@ nav {
     .submit-btn {
         padding: 0.7rem 1.2rem;
         font-size: 0.9rem;
+    }
+}
+
+/* Add this to ensure other sections are visible */
+section {
+    position: relative;
+    z-index: 1;
+    background-color: var(--white-color);
+    padding-top: 2rem;
+}
+
+#about, #projects, #skills, #experience, #contact {
+    padding-top: 2rem;
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 2rem;
+        height: auto;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .hero-image {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-content {
+        padding: 0.5rem;
+        gap: 1.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.1rem;
+    }
+
+    .hero-image {
+        width: 200px;
+        height: 200px;
     }
 }
 
